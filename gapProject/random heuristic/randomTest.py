@@ -1,6 +1,6 @@
 # test of the algorithms
 
-from greedyCostRollout import start
+from randomHeuristic import randomHeuristik
 import os
 
 # choose which instances to test here, e.g. "A" or "B"
@@ -9,26 +9,12 @@ instance = "C"
 with os.scandir("./instances/" + instance + "/") as entries:
     files = [(instance + "/" + entry.name) for entry in entries if entry.is_file()]
 
-files.sort()
+result = []
 
-result = [{} for _ in range(len(files))]
-
-i = 0
 for file in files:
-    status, costs = start(file)
-
-    tempResult = {
-        "status": status,
-        "costs": costs
-    }
-    result[i] = tempResult
-
-    i += 1
-
-    print(status, costs)
+    bestAssignment, bestCost, capacity = randomHeuristik(file)
+    result.append(bestCost)
     print("\n---------------------")
 
 print("\n")
-
-for element in result:
-    print(element)
+print(result)

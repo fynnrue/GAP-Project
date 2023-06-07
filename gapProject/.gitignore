@@ -20,4 +20,8 @@
 .history
 .ionide
 
+### everything else ###
+test/
+./__pycache__
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode

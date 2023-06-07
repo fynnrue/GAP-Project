@@ -5,7 +5,7 @@ from greedyCost import start as s2
 import os
 
 # choose which instances to test here, e.g. "A" or "B"
-instance = "A"
+instance = "C"
 
 with os.scandir("./instances/" + instance + "/") as entries:
     files = [(instance + "/" + entry.name) for entry in entries if entry.is_file()]
